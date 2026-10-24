@@ -2,6 +2,7 @@ import { Link, NavLink, Outlet } from 'react-router'
 import { brand } from '@/config/brand'
 import { cn } from '@/lib/cn'
 import { ArrowLeftIcon } from './icons'
+import { publicUrl } from '@/lib/publicUrl'
 
 const NAV = [
   { to: '/team/kitchen', label: 'Kitchen' },
@@ -18,7 +19,7 @@ export function StaffShell() {
       <header className="sticky top-0 z-30 border-b border-line bg-surface pt-[env(safe-area-inset-top)]">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2 md:px-8">
           <span className="flex items-center gap-2.5 py-1.5">
-            <img src={brand.logo.src} alt="" className="size-8 rounded-small" />
+            <img src={publicUrl(brand.logo.src)} alt="" className="size-8 rounded-small" />
             <span className="text-base font-bold">Team view</span>
           </span>
           <nav aria-label="Team" className="order-3 w-full overflow-x-auto md:order-none md:w-auto">

@@ -2,28 +2,24 @@
 
 A student pop-up food pre-order PWA for UAB. This repo holds three things:
 
-| Path | What it is | Build needed? |
-|---|---|---|
-| `index.html` | The choice page — two buttons, website or app. This is what should sit at your main domain's `/`. | No, plain static file. |
-| `site/index.html` | The promotional / pitch site. | No, plain static file (self-contained, includes its own screenshot as a data URI). |
-| `app/` | The actual React app (Vite + TypeScript + Tailwind). Runs on in-browser demo data — see `app/docs/spec.md`. | Yes — `npm install && npm run build` inside `app/`. |
+| Path | What it is |
+|---|---|
+| `index.html` | The choice page — two buttons, website or app. |
+| `site/index.html` | The promotional / pitch site. |
+| `app/` | The actual React app (Vite + TypeScript + Tailwind). Runs on in-browser demo data — see `app/docs/spec.md`. |
 
 `docs/` and `archive/` are planning notes and an earlier Supabase backend that isn't wired up right now (see `archive/backend/README.md`).
 
 ## Deploying to Vercel
 
-Two separate Vercel projects from this one GitHub repo, both pointing at the same repo but with a different **Root Directory**:
+**One project.** Import this repo into Vercel with the default settings — Root Directory `.` (the repo root), no framework preset needed. `vercel.json` tells Vercel everything else:
 
-1. **Main site** (the choice page + promo page)
-   - New Project → import this repo → **Root Directory: `.`** (the repo root, i.e. leave it as-is)
-   - Framework Preset: **Other** (no build step — Vercel will just serve `index.html` and `site/index.html` as static files)
-   - Deploy. Your domain's `/` is now the choice page, and `/site/` is the promo page.
+- `buildCommand: npm run build` — the root `package.json`'s one script, `scripts/build.mjs`. It builds `app/` (with its asset paths set to `/app/`) and assembles everything into `dist/`: `dist/index.html` (the choice page), `dist/site/` (the promo page) and `dist/app/` (the built React app).
+- `outputDirectory: dist`
+- `rewrites` sends any `/app/*` path with no matching file to `/app/index.html`, so the app's own client-side routes (`/app/order`, `/app/checkout`, …) work on a hard refresh or a direct link.
 
-2. **The app**
-   - New Project → import this repo again → **Root Directory: `app`**
-   - Framework Preset: **Vite** (auto-detected)
-   - Deploy. You'll get a second URL, e.g. `https://blazer-bites-app.vercel.app`.
+That's it — `/` is the choice page, `/site/` is the promo page, `/app/` is the live app, all on one domain, one deploy. No URLs need to be hand-edited after deploying.
 
-3. **Wire them together.** `index.html` and `site/index.html` currently link to the app with the placeholder path `/app/`. Once step 2 gives you the app's real URL, replace every `href="/app/"` in those two files with that URL (3 occurrences in `site/index.html`, 1 in `index.html`) and redeploy the main site. You can edit the files right on GitHub — no local setup needed.
+## Local development
 
-Everything else (custom domain, etc.) is standard Vercel project settings.
+The app is developed from `app/` on its own (`cd app && npm run dev`, or just use this project's own dev tooling, which already points there). `index.html` and `site/index.html` are plain static files — open them directly, no build needed. `npm run build` at the repo root (not inside `app/`) runs the full combined build described above, the same thing Vercel runs.

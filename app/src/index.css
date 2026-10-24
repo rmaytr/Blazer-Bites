@@ -87,7 +87,8 @@
 .phone-frame {
   height: 100%;
 }
-.phone-frame-notch {
+.phone-frame-notch,
+.phone-frame-home-indicator {
   display: none;
 }
 .phone-frame-screen {
@@ -101,31 +102,76 @@
     justify-content: center;
     gap: 16px;
     background: var(--bb-deep);
-    padding: 32px 16px;
+    padding: 40px 16px;
   }
+  /* iPhone 15's logical viewport: 393 x 852 CSS px. The frame is sized to that exactly, with a
+     titanium-style bezel, a Dynamic Island, side buttons and a home indicator, so it reads as a
+     real phone rather than a generic rounded rectangle. */
   .phone-frame {
-    box-sizing: border-box;
-    width: 390px;
-    height: min(844px, calc(100dvh - 64px));
-    border: 10px solid #0b0b0c;
-    border-radius: 48px;
+    position: relative;
+    box-sizing: content-box;
+    width: 393px;
+    height: min(852px, calc(100dvh - 80px));
+    border: 5px solid #3b3b3d;
+    border-radius: 62px;
     background: var(--bb-ground);
     box-shadow:
-      0 40px 90px -30px rgba(0, 0, 0, 0.55),
-      inset 0 0 0 2px #262626;
+      0 50px 100px -30px rgba(0, 0, 0, 0.55),
+      inset 0 0 0 2px #050505,
+      inset 0 0 0 7px #1c1c1e;
     overflow: hidden;
+  }
+  /* Side buttons: action button, volume rocker (left) and power button (right) — a few pixels of
+     detail that sell the "real device" read without needing a photo. */
+  .phone-frame::before,
+  .phone-frame::after {
+    content: '';
+    position: absolute;
+    z-index: 70;
+    background: #3b3b3d;
+  }
+  .phone-frame::before {
+    left: -8px;
+    top: 118px;
+    width: 3px;
+    height: 46px;
+    border-radius: 2px;
+    box-shadow:
+      0 66px 0 0 #3b3b3d,
+      0 136px 0 0 #3b3b3d;
+  }
+  .phone-frame::after {
+    right: -8px;
+    top: 168px;
+    width: 3px;
+    height: 78px;
+    border-radius: 2px;
   }
   .phone-frame-notch {
     display: block;
     position: absolute;
-    top: 10px;
+    top: 18px;
     left: 50%;
     z-index: 60;
-    width: 116px;
-    height: 24px;
+    width: 126px;
+    height: 37px;
     transform: translateX(-50%);
-    border-radius: 12px;
-    background: #0b0b0c;
+    border-radius: 19px;
+    background: #050505;
+  }
+  .phone-frame-home-indicator {
+    display: block;
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    z-index: 60;
+    width: 134px;
+    height: 5px;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    background: var(--bb-ink);
+    opacity: 0.35;
+    pointer-events: none;
   }
   .phone-frame-screen {
     /* `transform` gives this div a containing block of its own, so the shell's `position: fixed`
@@ -133,6 +179,13 @@
     transform: translateZ(0);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    /* `env(safe-area-inset-top)` is 0 in a desktop browser (there's no real notch to report), so
+       the island would otherwise sit on top of the page title. Clear it by hand instead. */
+    padding-top: 54px;
+    scrollbar-width: none; /* a real phone has no visible scrollbar */
+  }
+  .phone-frame-screen::-webkit-scrollbar {
+    display: none;
   }
 }
 

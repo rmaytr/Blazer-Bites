@@ -1,0 +1,8 @@
+{
+  "name": "blazer-bites-site",
+  "private": true,
+  "description": "Build orchestrator for the combined Vercel deploy (choice page + promo page + the app/ build). The app itself is developed from app/, not here.",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  }
+}

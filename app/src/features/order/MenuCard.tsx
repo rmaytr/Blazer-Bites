@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import { AllergenIcons, allergenName, Button, Price, StarRating } from '@/components/ui'
 import { cn } from '@/lib/cn'
 import type { MenuItem } from '@/types/app'
+import { publicUrl } from '@/lib/publicUrl'
 
 const ADDED_MS = 1400
 
@@ -58,7 +59,7 @@ export function MenuCard({ item, soldOut, avoid, inBag, onAdd }: MenuCardProps) 
   return (
     <article className={cn('overflow-hidden rounded-card bg-surface', soldOut && 'opacity-60')} aria-labelledby={`dish-${item.id}`}>
       {item.photo_url && (
-        <img src={item.photo_url} alt="" loading="lazy" className={cn('aspect-[16/9] w-full object-cover', soldOut && 'grayscale')} />
+        <img src={publicUrl(item.photo_url)} alt="" loading="lazy" className={cn('aspect-[16/9] w-full object-cover', soldOut && 'grayscale')} />
       )}
       <div className="p-5">
         <div className="flex items-start justify-between gap-3">

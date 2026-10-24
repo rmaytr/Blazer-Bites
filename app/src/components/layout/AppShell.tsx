@@ -91,6 +91,7 @@ export function AppShell() {
     <div className="phone-frame-backdrop">
       <div className="phone-frame">
         <div className="phone-frame-notch" aria-hidden="true" />
+        <div className="phone-frame-home-indicator" aria-hidden="true" />
         <div className="phone-frame-screen">
           <div className="min-h-dvh pt-[env(safe-area-inset-top)]">
             <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-full focus:bg-surface focus:px-4 focus:py-2">

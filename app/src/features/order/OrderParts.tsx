@@ -11,6 +11,7 @@ import { formatTime } from '@/lib/time'
 import type { BasketLine, CartWithSpot, MenuItem } from '@/types/app'
 import { TINT } from './tints'
 import { WaitText } from './WaitText'
+import { publicUrl } from '@/lib/publicUrl'
 
 const press = 'transition-transform duration-150 active:scale-[0.98] motion-reduce:active:scale-100'
 
@@ -109,7 +110,7 @@ export function ExpressNote() {
 export function NextSpecialCard({ item }: { item: MenuItem }) {
   return (
     <article className="flex items-center gap-4 rounded-card bg-surface p-4" aria-labelledby="next-special">
-      {item.photo_url && <img src={item.photo_url} alt="" loading="lazy" className="size-16 flex-none rounded-small object-cover" />}
+      {item.photo_url && <img src={publicUrl(item.photo_url)} alt="" loading="lazy" className="size-16 flex-none rounded-small object-cover" />}
       <div className="min-w-0">
         <p className="text-[13px] font-semibold text-muted">Coming next week</p>
         <h3 id="next-special" className="text-base font-semibold">

@@ -38,4 +38,9 @@ export const routes: RouteObject[] = [
   },
 ]
 
-export const router = createBrowserRouter(routes)
+// Locally the app is served at /. In the combined deploy (see the root README) it's nested
+// under /app/, which Vite's `base` config already knows (`import.meta.env.BASE_URL`); the router
+// needs the same prefix stripped from `location.pathname` before it matches a route.
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || undefined
+
+export const router = createBrowserRouter(routes, { basename })

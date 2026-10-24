@@ -6,6 +6,7 @@ import { cn } from '@/lib/cn'
 import type { OrderViewItem, RatingTag } from '@/types/app'
 import { COMMENT_MAX, RATING_TAGS } from './orders'
 import { ToggleChip } from './SettingControls'
+import { publicUrl } from '@/lib/publicUrl'
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
@@ -61,7 +62,7 @@ export function RateDish({ token, item }: RateDishProps) {
   return (
     <li className="rounded-card bg-surface p-5">
       <div className="flex items-center gap-3">
-        {item.photo_url && <img src={item.photo_url} alt="" className="size-14 flex-none rounded-inner bg-raised object-cover" />}
+        {item.photo_url && <img src={publicUrl(item.photo_url)} alt="" className="size-14 flex-none rounded-inner bg-raised object-cover" />}
         <div className="min-w-0 flex-1">
           <h2 className="text-base font-semibold">{name}</h2>
           {item.rated && item.stars !== null ? (
