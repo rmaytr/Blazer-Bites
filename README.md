@@ -18,6 +18,8 @@ A student pop-up food pre-order PWA for UAB. This repo holds three things:
 - `outputDirectory: dist`
 - `rewrites` sends any `/app/*` path with no matching file to `/app/index.html`, so the app's own client-side routes (`/app/order`, `/app/checkout`, …) work on a hard refresh or a direct link.
 
+- `sw.js` at the root is a kill switch. Earlier deploys served the app at `/` with a service worker scoped to the whole site, which kept answering `/` with the cached app. The build copies `sw.js` to `dist/sw.js`, so those browsers pick it up, drop the old worker and its caches, and reload onto the choice page. Leave it in place.
+
 That's it — `/` is the choice page, `/site/` is the promo page, `/app/` is the live app, all on one domain, one deploy. No URLs need to be hand-edited after deploying.
 
 ## Local development
