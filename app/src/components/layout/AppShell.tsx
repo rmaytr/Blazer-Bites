@@ -1,4 +1,4 @@
-import type { ComponentType } from 'react'
+import { useEffect, type ComponentType } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router'
 import { useBasket } from '@/hooks/useBasket'
 import { cn } from '@/lib/cn'
@@ -82,10 +82,39 @@ function OrderTab() {
   )
 }
 
+// The desktop phone frame's outer size (393 x 852 screen plus its 5px bezel) and the breathing room
+// kept around it. Must match .phone-frame in index.css.
+const FRAME_W = 403
+const FRAME_H = 862
+const MARGIN = 32
+const MAX_SCALE = 1.2
+
+/** Scales the desktop phone frame to fit the window while keeping its real proportions. */
+function usePhoneScale() {
+  useEffect(() => {
+    const root = document.documentElement
+    const fit = () => {
+      const scale = Math.min(
+        MAX_SCALE,
+        (window.innerHeight - MARGIN * 2) / FRAME_H,
+        (window.innerWidth - MARGIN) / FRAME_W,
+      )
+      root.style.setProperty('--phone-scale', String(Math.max(scale, 0.4)))
+    }
+    fit()
+    window.addEventListener('resize', fit)
+    return () => {
+      window.removeEventListener('resize', fit)
+      root.style.removeProperty('--phone-scale')
+    }
+  }, [])
+}
+
 /** Student layout: one centred column (max 480px), 5-tab bottom bar inside the safe area. */
 export function AppShell() {
   const { pathname } = useLocation()
   const showNav = !HIDE_NAV.some((r) => r.test(pathname))
+  usePhoneScale()
 
   return (
     <div className="phone-frame-backdrop">

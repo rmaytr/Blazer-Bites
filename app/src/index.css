@@ -102,7 +102,10 @@
     justify-content: center;
     gap: 16px;
     background: var(--bb-deep);
-    padding: 40px 16px;
+    /* The frame keeps its true size and is scaled to fit (see usePhoneScale), so its layout box can
+       be taller than the window. Clip that overflow instead of letting the page scroll. */
+    height: 100dvh;
+    overflow: hidden;
   }
   /* iPhone 15's logical viewport: 393 x 852 CSS px. The frame is sized to that exactly, with a
      titanium-style bezel, a Dynamic Island, side buttons and a home indicator, so it reads as a
@@ -111,7 +114,13 @@
     position: relative;
     box-sizing: content-box;
     width: 393px;
-    height: min(852px, calc(100dvh - 80px));
+    height: 852px;
+    flex: none;
+    /* Always the real 393 x 852 proportions: shrunk (or grown a little) as a whole to fit the
+       window, never cropped shorter. The transform also makes this frame the containing block
+       for the shell's `position: fixed` bottom nav, sheets and toasts, so they pin to the
+       phone's edges. This element doesn't scroll, so they stay put while the screen scrolls. */
+    transform: scale(var(--phone-scale, 1));
     border: 5px solid #3b3b3d;
     border-radius: 62px;
     background: var(--bb-ground);
@@ -174,9 +183,6 @@
     pointer-events: none;
   }
   .phone-frame-screen {
-    /* `transform` gives this div a containing block of its own, so the shell's `position: fixed`
-       bottom nav pins to the phone frame's edge instead of the real browser window. */
-    transform: translateZ(0);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     /* `env(safe-area-inset-top)` is 0 in a desktop browser (there's no real notch to report), so
@@ -186,6 +192,11 @@
   }
   .phone-frame-screen::-webkit-scrollbar {
     display: none;
+  }
+  /* The shell's page wrapper is `min-h-dvh` for real phones; inside the frame it only needs to
+     fill the screen, or every page would scroll by the height difference. */
+  .phone-frame-screen > div {
+    min-height: 100%;
   }
 }
 
