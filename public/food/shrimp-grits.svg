@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Shrimp and grits">
+<title>Shrimp and grits</title>
+<rect width="800" height="600" fill="#F4C300"/>
+<circle cx="400" cy="300" r="225" fill="#2B2F2C"/><circle cx="400" cy="300" r="207" fill="#3A3F3B"/>
+<circle cx="400" cy="300" r="190" fill="#F3DC8E"/>
+<circle cx="400" cy="300" r="190" fill="none" stroke="#E9CB6C" stroke-width="14" stroke-dasharray="4 26"/>
+<g transform="translate(310 260) rotate(20)">
+  <path d="M-38 0a38 38 0 1 1 38 38" fill="none" stroke="#EE7E5B" stroke-width="22" stroke-linecap="round"/>
+  <path d="M-38 0a38 38 0 1 1 38 38" fill="none" stroke="#F6A27F" stroke-width="6" stroke-dasharray="8 10"/>
+  <path d="M0 38l14 16-20 2z" fill="#D95E3D"/>
+</g><g transform="translate(430 220) rotate(-30)">
+  <path d="M-38 0a38 38 0 1 1 38 38" fill="none" stroke="#EE7E5B" stroke-width="22" stroke-linecap="round"/>
+  <path d="M-38 0a38 38 0 1 1 38 38" fill="none" stroke="#F6A27F" stroke-width="6" stroke-dasharray="8 10"/>
+  <path d="M0 38l14 16-20 2z" fill="#D95E3D"/>
+</g><g transform="translate(480 330) rotate(70)">
+  <path d="M-38 0a38 38 0 1 1 38 38" fill="none" stroke="#EE7E5B" stroke-width="22" stroke-linecap="round"/>
+  <path d="M-38 0a38 38 0 1 1 38 38" fill="none" stroke="#F6A27F" stroke-width="6" stroke-dasharray="8 10"/>
+  <path d="M0 38l14 16-20 2z" fill="#D95E3D"/>
+</g><g transform="translate(360 370) rotate(140)">
+  <path d="M-38 0a38 38 0 1 1 38 38" fill="none" stroke="#EE7E5B" stroke-width="22" stroke-linecap="round"/>
+  <path d="M-38 0a38 38 0 1 1 38 38" fill="none" stroke="#F6A27F" stroke-width="6" stroke-dasharray="8 10"/>
+  <path d="M0 38l14 16-20 2z" fill="#D95E3D"/>
+</g><g transform="translate(280 340) rotate(200)">
+  <path d="M-38 0a38 38 0 1 1 38 38" fill="none" stroke="#EE7E5B" stroke-width="22" stroke-linecap="round"/>
+  <path d="M-38 0a38 38 0 1 1 38 38" fill="none" stroke="#F6A27F" stroke-width="6" stroke-dasharray="8 10"/>
+  <path d="M0 38l14 16-20 2z" fill="#D95E3D"/>
+</g>
+<g fill="#3E8A4E"><circle cx="320" cy="380" r="7"/><circle cx="346" cy="238" r="7"/><circle cx="372" cy="396" r="7"/><circle cx="398" cy="230" r="7"/><circle cx="424" cy="388" r="7"/><circle cx="450" cy="246" r="7"/><circle cx="476" cy="380" r="7"/></g>
+</svg>

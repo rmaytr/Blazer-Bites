@@ -1,0 +1,90 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/bricolage-grotesque';
+
+/* Colour values live in src/config/brand.ts and are injected as --bb-* variables (lib/theme.ts).
+   Light theme only. Colour goes on data, status and the one primary action, not on chrome. */
+@theme inline {
+  --font-sans: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-ground: var(--bb-ground);
+  --color-surface: var(--bb-surface);
+  --color-raised: var(--bb-raised);
+  --color-line: var(--bb-line);
+  --color-ink: var(--bb-ink);
+  --color-muted: var(--bb-muted);
+  --color-primary: var(--bb-primary);
+  --color-on-primary: var(--bb-on-primary);
+  --color-deep: var(--bb-deep);
+  --color-on-deep: var(--bb-on-deep);
+  --color-gold: var(--bb-gold);
+  --color-on-gold: var(--bb-on-gold);
+
+  /* Brand accents: data marks and map pins only, never text */
+  --color-campus: var(--bb-campus);
+  --color-evergreen: var(--bb-evergreen);
+  --color-sky: var(--bb-sky);
+
+  /* Pale tiles + same-hue ink */
+  --color-sky-tint: var(--bb-sky-tint);
+  --color-sky-ink: var(--bb-sky-ink);
+  --color-campus-tint: var(--bb-campus-tint);
+  --color-campus-ink: var(--bb-campus-ink);
+  --color-gold-tint: var(--bb-gold-tint);
+  --color-gold-ink: var(--bb-gold-ink);
+  --color-evergreen-tint: var(--bb-evergreen-tint);
+  --color-evergreen-ink: var(--bb-evergreen-ink);
+
+  /* Status pairs */
+  --color-info-bg: var(--bb-info-bg);
+  --color-info-ink: var(--bb-info-ink);
+  --color-positive-bg: var(--bb-positive-bg);
+  --color-positive-ink: var(--bb-positive-ink);
+  --color-warning-bg: var(--bb-warning-bg);
+  --color-warning-ink: var(--bb-warning-ink);
+  --color-danger-bg: var(--bb-danger-bg);
+  --color-danger-ink: var(--bb-danger-ink);
+  --color-neutral-bg: var(--bb-neutral-bg);
+  --color-neutral-ink: var(--bb-neutral-ink);
+  --color-focus: var(--bb-focus);
+
+  /* One large radius, stepping down inside: cards 20, inner 12, small 8, pills = rounded-full */
+  --radius-card: 20px;
+  --radius-inner: 12px;
+  --radius-small: 8px;
+}
+
+:root {
+  /* Height of the student bottom bar (without the safe-area inset). Sticky bars sit on top of it:
+     bottom-[calc(var(--nav-h)+env(safe-area-inset-bottom))] */
+  --nav-h: 4.5rem;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-ground text-ink font-sans antialiased;
+    font-optical-sizing: auto;
+    min-height: 100dvh;
+  }
+  :focus-visible {
+    outline: 3px solid var(--bb-focus);
+    outline-offset: 2px;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

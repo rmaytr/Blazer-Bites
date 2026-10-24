@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Roasted cauliflower">
+<title>Roasted cauliflower</title>
+<rect width="800" height="600" fill="#1E6B52"/>
+<circle cx="400" cy="300" r="230" fill="#FBF8F2"/><circle cx="400" cy="300" r="202" fill="#F1ECE1"/>
+<g transform="translate(330 250)">
+  <circle r="64" fill="#F1E3BE"/>
+  <circle cx="-22.4" cy="-19.2" r="26.88" fill="#E8CF92"/>
+  <circle cx="24.32" cy="-12.8" r="24.32" fill="#DDB56A"/>
+  <circle cx="3.2" cy="25.6" r="23.04" fill="#C98A3D"/>
+</g><g transform="translate(460 240)">
+  <circle r="58" fill="#F1E3BE"/>
+  <circle cx="-20.299999999999997" cy="-17.4" r="24.36" fill="#E8CF92"/>
+  <circle cx="22.04" cy="-11.600000000000001" r="22.04" fill="#DDB56A"/>
+  <circle cx="2.9000000000000004" cy="23.200000000000003" r="20.88" fill="#C98A3D"/>
+</g><g transform="translate(380 350)">
+  <circle r="70" fill="#F1E3BE"/>
+  <circle cx="-24.5" cy="-21" r="29.4" fill="#E8CF92"/>
+  <circle cx="26.6" cy="-14" r="26.6" fill="#DDB56A"/>
+  <circle cx="3.5" cy="28" r="25.2" fill="#C98A3D"/>
+</g><g transform="translate(490 360)">
+  <circle r="52" fill="#F1E3BE"/>
+  <circle cx="-18.2" cy="-15.6" r="21.84" fill="#E8CF92"/>
+  <circle cx="19.76" cy="-10.4" r="19.76" fill="#DDB56A"/>
+  <circle cx="2.6" cy="20.8" r="18.72" fill="#C98A3D"/>
+</g><g transform="translate(290 360)">
+  <circle r="46" fill="#F1E3BE"/>
+  <circle cx="-16.099999999999998" cy="-13.799999999999999" r="19.32" fill="#E8CF92"/>
+  <circle cx="17.48" cy="-9.200000000000001" r="17.48" fill="#DDB56A"/>
+  <circle cx="2.3000000000000003" cy="18.400000000000002" r="16.56" fill="#C98A3D"/>
+</g>
+<g fill="#3E8A4E"><circle cx="300" cy="200" r="8"/><circle cx="520" cy="240" r="7"/><circle cx="440" cy="400" r="8"/></g>
+<path d="M300 420c40 20 120 24 180 4" stroke="#E25B3A" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="3 18"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Veggie wrap">
+<title>Veggie wrap</title>
+<rect width="800" height="600" fill="#E9E1CF"/>
+<circle cx="400" cy="300" r="230" fill="#FBF8F2"/><circle cx="400" cy="300" r="202" fill="#F1ECE1"/>
+<g transform="translate(320 280) rotate(-18)">
+  <rect x="-80" y="-120" width="160" height="240" rx="70" fill="#EBD9A8"/>
+  <circle cx="0" cy="-60" r="62" fill="#F7EFD6"/>
+  <path d="M0 -60m-46 0a46 46 0 1 0 92 0a34 34 0 1 0-68 0a22 22 0 1 0 44 0" fill="none" stroke="#3E8A4E" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="-14" cy="-72" r="9" fill="#D9443A"/><circle cx="18" cy="-46" r="8" fill="#F4C300"/>
+</g><g transform="translate(490 320) rotate(14)">
+  <rect x="-80" y="-120" width="160" height="240" rx="70" fill="#EBD9A8"/>
+  <circle cx="0" cy="-60" r="62" fill="#F7EFD6"/>
+  <path d="M0 -60m-46 0a46 46 0 1 0 92 0a34 34 0 1 0-68 0a22 22 0 1 0 44 0" fill="none" stroke="#3E8A4E" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="-14" cy="-72" r="9" fill="#D9443A"/><circle cx="18" cy="-46" r="8" fill="#F4C300"/>
+</g>
+</svg>
