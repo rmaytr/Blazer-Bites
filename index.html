@@ -1,16 +1,65 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#1A5632" />
-    <meta name="description" content="Chef-quality food. Under $10. In your hand in under 3 minutes." />
-    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
-    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
-    <title>Blazer Bites</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blazer Bites</title>
+<style>
+  :root {
+    --bg: #F5F7F4; --ink: #0F1F17; --muted: #4E5C54; --surface: #FFFFFF; --line: #E1E7E0;
+    --green: #1A5632; --gold: #FDB913; --on-gold: #033319;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.5 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    display: flex; align-items: center; justify-content: center; padding: 24px;
+  }
+  .card { width: 100%; max-width: 420px; text-align: center; }
+  .mark { width: 28px; height: 28px; border-radius: 9px; background: conic-gradient(from 200deg, var(--green), #90D408, var(--gold), var(--green)); margin: 0 auto 20px; }
+  h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 8px; }
+  p.sub { color: var(--muted); font-size: 15px; margin: 0 0 32px; }
+  .choices { display: flex; flex-direction: column; gap: 12px; }
+  a.choice {
+    display: flex; align-items: center; gap: 14px; text-align: left; text-decoration: none; color: var(--ink);
+    background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 18px 20px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  a.choice:hover { transform: translateY(-1px); box-shadow: 0 12px 28px -16px rgba(15, 31, 23, 0.25); }
+  a.choice:active { transform: translateY(0); }
+  .ic { flex: 0 0 auto; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+  .ic.site { background: #EEF4F0; color: var(--green); }
+  .ic.app { background: var(--gold); color: var(--on-gold); }
+  .choice .t { flex: 1; min-width: 0; }
+  .choice b { display: block; font-size: 16px; font-weight: 700; }
+  .choice .t span { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .choice .go { flex: 0 0 auto; color: var(--muted); font-size: 18px; }
+  footer { margin-top: 28px; font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="mark" aria-hidden="true"></div>
+    <h1>Blazer Bites</h1>
+    <p class="sub">Chef-quality lunch, between classes.</p>
+    <div class="choices">
+      <a class="choice" href="/site/" target="_blank" rel="noopener">
+        <span class="ic site" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9z"/></svg>
+        </span>
+        <span class="t"><b>Our website</b><span>The pitch — how it works, the numbers, the plan</span></span>
+        <span class="go" aria-hidden="true">→</span>
+      </a>
+      <a class="choice" href="/app/" target="_blank" rel="noopener">
+        <span class="ic app" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+        </span>
+        <span class="t"><b>Our app</b><span>Order ahead, pick a pickup window, track your order</span></span>
+        <span class="go" aria-hidden="true">→</span>
+      </a>
+    </div>
+    <footer>A student venture proposal for UAB. Not affiliated with UAB Campus Dining or Sodexo.</footer>
+  </div>
+</body>
 </html>
