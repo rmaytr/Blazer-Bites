@@ -82,10 +82,10 @@ function OrderTab() {
   )
 }
 
-// The desktop phone frame's outer size (393 x 852 screen plus its 5px bezel) and the breathing room
-// kept around it. Must match .phone-frame in index.css.
-const FRAME_W = 403
-const FRAME_H = 862
+// The desktop phone frame's outer size (393 x 852 screen plus its 9px glass border and 5px band) and
+// the breathing room kept around it. Must match .phone-frame in index.css.
+const FRAME_W = 421
+const FRAME_H = 880
 const MARGIN = 32
 const MAX_SCALE = 1.2
 
@@ -122,6 +122,9 @@ export function AppShell() {
         <div className="phone-frame-notch" aria-hidden="true" />
         <div className="phone-frame-home-indicator" aria-hidden="true" />
         <div className="phone-frame-viewport">
+          <div className="phone-frame-status" aria-hidden="true">
+            <span>9:41</span>
+          </div>
           <div className="phone-frame-screen">
             <div className="min-h-dvh pt-[env(safe-area-inset-top)]">
               <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-full focus:bg-surface focus:px-4 focus:py-2">

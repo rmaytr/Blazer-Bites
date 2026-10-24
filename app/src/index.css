@@ -88,6 +88,7 @@
   height: 100%;
 }
 .phone-frame-notch,
+.phone-frame-status,
 .phone-frame-home-indicator {
   display: none;
 }
@@ -119,13 +120,14 @@
     /* Always the real 393 x 852 proportions: shrunk (or grown a little) as a whole to fit the
        window, never cropped shorter. */
     transform: scale(var(--phone-scale, 1));
+    /* 5px titanium band, then a 9px black glass border around the 393 x 852 screen. */
     border: 5px solid #3b3b3d;
-    border-radius: 62px;
-    background: var(--bb-ground);
+    padding: 9px;
+    border-radius: 66px;
+    background: #050505;
     box-shadow:
       0 50px 100px -30px rgba(0, 0, 0, 0.55),
-      inset 0 0 0 2px #050505,
-      inset 0 0 0 7px #1c1c1e;
+      inset 0 0 0 2px #1c1c1e;
     overflow: hidden;
   }
   /* Side buttons: action button, volume rocker (left) and power button (right) — a few pixels of
@@ -157,7 +159,7 @@
   .phone-frame-notch {
     display: block;
     position: absolute;
-    top: 18px;
+    top: 20px;
     left: 50%;
     z-index: 60;
     width: 126px;
@@ -169,7 +171,7 @@
   .phone-frame-home-indicator {
     display: block;
     position: absolute;
-    bottom: 8px;
+    bottom: 17px;
     left: 50%;
     z-index: 60;
     width: 134px;
@@ -187,11 +189,28 @@
      like the fixed nav) trims everything to the screen's rounded corners. */
   .phone-frame-viewport {
     position: absolute;
-    inset: 0;
+    inset: 9px;
     overflow: hidden;
-    border-radius: 57px;
-    clip-path: inset(0 round 57px);
+    border-radius: 52px;
+    clip-path: inset(0 round 52px);
+    background: var(--bb-ground);
     transform: translateZ(0);
+  }
+  /* Status bar: an opaque strip level with the Dynamic Island, so scrolled content slides under it
+     like on a real iPhone instead of showing above and around the island. */
+  .phone-frame-status {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 45;
+    height: 50px;
+    padding: 4px 0 0 44px;
+    background: var(--bb-ground);
+    color: var(--bb-ink);
+    font-size: 16px;
+    font-weight: 600;
+    pointer-events: none;
   }
   .phone-frame-screen {
     overflow-y: auto;
