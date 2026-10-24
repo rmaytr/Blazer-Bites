@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource/instrument-serif": "^5.3.0",
     "@yudiel/react-qr-scanner": "^2.6.0",
     "jspdf": "^4.2.1",
     "jspdf-autotable": "^5.0.9",

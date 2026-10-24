@@ -53,7 +53,7 @@ export function TodayStrip({ fiveDollar, special, to }: { fiveDollar?: MenuItem;
   if (!fiveDollar && !special) return null
   return (
     <section aria-labelledby="today-title" className="mt-8">
-      <h2 id="today-title" className="mb-3 text-base font-semibold">
+      <h2 id="today-title" className="section-label mb-3">
         Today
       </h2>
       <div className="grid grid-cols-2 gap-3">

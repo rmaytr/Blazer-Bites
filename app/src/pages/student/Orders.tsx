@@ -115,7 +115,7 @@ export default function Orders() {
 
       {past.length > 0 && (
         <section aria-labelledby="past-orders" className={cn(active.length > 0 && 'mt-8')}>
-          <h2 id="past-orders" className="text-base font-semibold">
+          <h2 id="past-orders" className="section-label">
             Past orders
           </h2>
           <ul className="mt-1 divide-y divide-line rounded-card bg-surface px-5">

@@ -60,7 +60,7 @@ export default function Rewards() {
 
       {card.recent.length > 0 && (
         <section aria-labelledby="recent-title" className="mt-8">
-          <h2 id="recent-title" className="text-base font-semibold">
+          <h2 id="recent-title" className="section-label">
             Recent punches
           </h2>
           <ul className="mt-1 divide-y divide-line rounded-card bg-surface px-5">

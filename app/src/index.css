@@ -1,10 +1,14 @@
 @import 'tailwindcss';
 @import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource/instrument-serif/latin-400.css';
+@import '@fontsource/instrument-serif/latin-400-italic.css';
 
 /* Colour values live in src/config/brand.ts and are injected as --bb-* variables (lib/theme.ts).
    Light theme only. Colour goes on data, status and the one primary action, not on chrome. */
 @theme inline {
   --font-sans: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  /* Display serif for page titles and the wordmark, as on the promo site. Never for body text. */
+  --font-display: 'Instrument Serif', ui-serif, Georgia, serif;
 
   --color-ground: var(--bb-ground);
   --color-surface: var(--bb-surface);
@@ -76,6 +80,24 @@
   .num {
     font-variant-numeric: tabular-nums;
   }
+}
+
+/* Type: three voices. Instrument Serif for page titles, Bricolage for everything you read or tap,
+   and small tracked caps for section labels. */
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bb-muted);
+}
+/* "Bites" in the wordmark: UAB green into the brighter evergreen, both dark enough to read. */
+.brand-bites {
+  padding-right: 0.08em; /* room for the italic overhang so the gradient doesn't clip it */
+  background: linear-gradient(100deg, var(--bb-deep) 10%, #1E7A45 60%, #2E8B3A);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* Glass, student app only (AppShell's .app-shell). Taken from the promo site: soft colour glows on

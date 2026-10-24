@@ -23,7 +23,7 @@ export function PageHeader({ title, subtitle, back, action, className }: PageHea
         </Link>
       )}
       <div className="min-w-0 flex-1 pt-1">
-        <h1 className="text-2xl leading-tight font-bold tracking-tight">{title}</h1>
+        <h1 className="font-display text-[40px] leading-none tracking-[-0.01em]">{title}</h1>
         {subtitle && <p className="mt-1 text-[15px] text-muted">{subtitle}</p>}
       </div>
       {action && <div className="flex-none">{action}</div>}

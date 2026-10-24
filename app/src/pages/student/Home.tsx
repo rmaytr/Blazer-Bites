@@ -1,12 +1,11 @@
 // Home: when and where can I get food soonest? (docs/spec.md, screen 1)
 import { lazy, Suspense } from 'react'
-import { brand } from '@/config/brand'
 import { CART_IDS } from '@/demo/data'
 import { useCarts } from '@/hooks/useCarts'
 import { useLoyalty } from '@/hooks/useLoyalty'
 import { useMenu } from '@/hooks/useMenu'
 import { useSettings } from '@/hooks/useSettings'
-import { PageHeader, Skeleton } from '@/components/ui'
+import { BrandHeader, Skeleton } from '@/components/ui'
 import { cartStatus, type CartStatus } from '@/lib/cartStatus'
 import { useMyLocation } from '@/features/order/hooks'
 import { AnswerCard, CartRow, PunchCard, TodayStrip } from '@/features/order/HomeParts'
@@ -57,7 +56,7 @@ export default function Home() {
 
   return (
     <>
-      <PageHeader title={brand.name} />
+      <BrandHeader />
       {loading || !carts ? (
         <HomeSkeleton />
       ) : (
@@ -71,7 +70,7 @@ export default function Home() {
           />
 
           <section aria-labelledby="carts-title" className="mt-8">
-            <h2 id="carts-title" className="mb-3 text-base font-semibold">
+            <h2 id="carts-title" className="section-label mb-3">
               Carts
             </h2>
             <ul className="space-y-2">
