@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import { buttonClasses, Card, Price, StarRating, StatusChip, WaitBadge } from '@/components/ui'
 import { distanceMeters } from '@/demo/data'
+import { publicUrl } from '@/lib/publicUrl'
 import type { LoyaltyView } from '@/hooks/useLoyalty'
 import type { CartStatus } from '@/lib/cartStatus'
 import { cn } from '@/lib/cn'
@@ -58,25 +59,42 @@ export function TodayStrip({ fiveDollar, special, to }: { fiveDollar?: MenuItem;
       </h2>
       <div className="grid grid-cols-2 gap-3">
         {fiveDollar && (
-          <Link to={to} className={cn('flex min-h-32 flex-col rounded-card bg-gold p-4 text-on-gold', press)}>
-            <span className="num text-[32px] leading-none font-bold tracking-tight">$5</span>
+          <Link to={to} className={cn('deal-tile flex min-h-36 flex-col rounded-card p-4 text-on-gold', press)}>
+            <span className="flex items-start justify-between gap-2">
+              <span className="num font-title text-[40px] leading-none font-extrabold tracking-tight">$5</span>
+              {fiveDollar.photo_url && <DishThumb src={fiveDollar.photo_url} />}
+            </span>
             <span className="card-title card-title-sm mt-auto pt-3">
               {fiveDollar.variants.join(' or ').replace(/^./, (c) => c.toUpperCase())}
             </span>
           </Link>
         )}
         {special && (
-          <Link to={to} className={cn('flex min-h-32 flex-col rounded-card bg-surface p-4', press)}>
-            <span className="text-[13px] font-semibold text-muted">Chef&rsquo;s special</span>
-            <span className="card-title card-title-sm mt-1">{special.name}</span>
+          <Link to={to} className={cn('special-tile relative flex min-h-36 flex-col rounded-card bg-surface p-4', press)}>
+            <span className="flex items-start justify-between gap-2">
+              <span className="tile-pill bg-evergreen-tint text-evergreen-ink">
+                <span aria-hidden>✦</span> Special
+              </span>
+              {special.photo_url && <DishThumb src={special.photo_url} />}
+            </span>
+            <span className="card-title card-title-sm mt-2">{special.name}</span>
             <span className="mt-auto flex items-center justify-between gap-2 pt-3">
               <StarRating value={special.avg_rating ?? 0} count={special.rating_count} />
-              <Price cents={special.price_cents} className="text-[15px]" />
+              <Price cents={special.price_cents} className="text-[15px] font-bold" />
             </span>
           </Link>
         )}
       </div>
     </section>
+  )
+}
+
+/** A dish illustration cropped to its plate, as a small round thumbnail. */
+function DishThumb({ src }: { src: string }) {
+  return (
+    <span className="-mt-1 -mr-1 size-12 flex-none overflow-hidden rounded-full bg-raised shadow-[0_4px_10px_-4px_rgba(15,31,23,0.35)] ring-2 ring-white/80">
+      <img src={publicUrl(src)} alt="" className="size-full scale-[1.35] object-cover" />
+    </span>
   )
 }
 

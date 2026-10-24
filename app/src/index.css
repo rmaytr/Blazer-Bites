@@ -115,6 +115,33 @@
   color: transparent;
 }
 
+/* Home's "Today" tiles. The $5 deal is a warm gold gradient with a glassy edge and the dish
+   peeking in from the corner; the chef's special is a frosted card with a thin gold outline. */
+.tile-pill {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 4px;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.deal-tile {
+  background: linear-gradient(150deg, #ffd65c 0%, #fdb913 55%, #f2a20a 100%);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.5),
+    inset 0 1px 0 rgb(255 255 255 / 0.7),
+    0 14px 28px -16px rgb(176 104 0 / 0.6);
+}
+.app-shell .special-tile.rounded-card.bg-surface {
+  box-shadow:
+    inset 0 0 0 1.5px rgb(253 185 19 / 0.45),
+    0 14px 28px -18px rgb(15 31 23 / 0.25);
+}
+
 /* Glass, student app only (AppShell's .app-shell). Taken from the promo site: soft colour glows on
    the ground, and frosted white surfaces over them. Kept quiet on purpose: surfaces stay mostly
    opaque so text contrast barely moves, and the glows are static and pale. */
