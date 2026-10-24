@@ -78,6 +78,64 @@
   }
 }
 
+/* Phone view: on a desktop-width browser, the student app sits inside a phone mockup so it reads
+   as "an app", not a webpage. On a real phone (viewport under 560px) this is a no-op — full-bleed,
+   same as before. Not used by the team/kitchen screens (StaffShell), which stay full width. */
+.phone-frame-backdrop {
+  min-height: 100dvh;
+}
+.phone-frame {
+  height: 100%;
+}
+.phone-frame-notch {
+  display: none;
+}
+.phone-frame-screen {
+  position: relative;
+  height: 100%;
+}
+@media (min-width: 560px) {
+  .phone-frame-backdrop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: var(--bb-deep);
+    padding: 32px 16px;
+  }
+  .phone-frame {
+    box-sizing: border-box;
+    width: 390px;
+    height: min(844px, calc(100dvh - 64px));
+    border: 10px solid #0b0b0c;
+    border-radius: 48px;
+    background: var(--bb-ground);
+    box-shadow:
+      0 40px 90px -30px rgba(0, 0, 0, 0.55),
+      inset 0 0 0 2px #262626;
+    overflow: hidden;
+  }
+  .phone-frame-notch {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    z-index: 60;
+    width: 116px;
+    height: 24px;
+    transform: translateX(-50%);
+    border-radius: 12px;
+    background: #0b0b0c;
+  }
+  .phone-frame-screen {
+    /* `transform` gives this div a containing block of its own, so the shell's `position: fixed`
+       bottom nav pins to the phone frame's edge instead of the real browser window. */
+    transform: translateZ(0);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
