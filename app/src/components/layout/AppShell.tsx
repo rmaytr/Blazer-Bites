@@ -121,39 +121,41 @@ export function AppShell() {
       <div className="phone-frame">
         <div className="phone-frame-notch" aria-hidden="true" />
         <div className="phone-frame-home-indicator" aria-hidden="true" />
-        <div className="phone-frame-screen">
-          <div className="min-h-dvh pt-[env(safe-area-inset-top)]">
-            <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-full focus:bg-surface focus:px-4 focus:py-2">
-              Skip to content
-            </a>
-            <main
-              id="main"
-              className={cn(
-                'mx-auto w-full max-w-[480px] px-4 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))]',
-                showNav ? 'pb-[calc(var(--nav-h)+env(safe-area-inset-bottom)+1.5rem)]' : 'pb-[max(1.5rem,env(safe-area-inset-bottom))]',
+        <div className="phone-frame-viewport">
+          <div className="phone-frame-screen">
+            <div className="min-h-dvh pt-[env(safe-area-inset-top)]">
+              <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-full focus:bg-surface focus:px-4 focus:py-2">
+                Skip to content
+              </a>
+              <main
+                id="main"
+                className={cn(
+                  'mx-auto w-full max-w-[480px] px-4 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))]',
+                  showNav ? 'pb-[calc(var(--nav-h)+env(safe-area-inset-bottom)+1.5rem)]' : 'pb-[max(1.5rem,env(safe-area-inset-bottom))]',
+                )}
+              >
+                <Outlet />
+              </main>
+              {showNav && (
+                <nav aria-label="Main" className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)]">
+                  <ul className="mx-auto grid max-w-[480px] grid-cols-5 px-1">
+                    {LEFT.map((t) => (
+                      <li key={t.to}>
+                        <TabLink {...t} />
+                      </li>
+                    ))}
+                    <li>
+                      <OrderTab />
+                    </li>
+                    {RIGHT.map((t) => (
+                      <li key={t.to}>
+                        <TabLink {...t} />
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
               )}
-            >
-              <Outlet />
-            </main>
-            {showNav && (
-              <nav aria-label="Main" className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)]">
-                <ul className="mx-auto grid max-w-[480px] grid-cols-5 px-1">
-                  {LEFT.map((t) => (
-                    <li key={t.to}>
-                      <TabLink {...t} />
-                    </li>
-                  ))}
-                  <li>
-                    <OrderTab />
-                  </li>
-                  {RIGHT.map((t) => (
-                    <li key={t.to}>
-                      <TabLink {...t} />
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            )}
+            </div>
           </div>
         </div>
       </div>

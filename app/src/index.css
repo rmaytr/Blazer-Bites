@@ -117,9 +117,7 @@
     height: 852px;
     flex: none;
     /* Always the real 393 x 852 proportions: shrunk (or grown a little) as a whole to fit the
-       window, never cropped shorter. The transform also makes this frame the containing block
-       for the shell's `position: fixed` bottom nav, sheets and toasts, so they pin to the
-       phone's edges. This element doesn't scroll, so they stay put while the screen scrolls. */
+       window, never cropped shorter. */
     transform: scale(var(--phone-scale, 1));
     border: 5px solid #3b3b3d;
     border-radius: 62px;
@@ -181,6 +179,19 @@
     background: var(--bb-ink);
     opacity: 0.35;
     pointer-events: none;
+  }
+  /* The glass: a non-scrolling layer that holds the scrolling screen. Its `transform` makes it the
+     containing block for the shell's `position: fixed` bottom nav, sheets and bars, so they pin to
+     the phone's bottom edge instead of the browser window, and stay put while the screen scrolls.
+     `clip-path` (not just overflow + border-radius, which Safari ignores for composited layers
+     like the fixed nav) trims everything to the screen's rounded corners. */
+  .phone-frame-viewport {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 57px;
+    clip-path: inset(0 round 57px);
+    transform: translateZ(0);
   }
   .phone-frame-screen {
     overflow-y: auto;
