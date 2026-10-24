@@ -60,7 +60,7 @@ function OrderTab() {
         <>
           <span
             className={cn(
-              '-mt-4 flex h-16 w-[4.5rem] flex-col items-center justify-center gap-0.5 rounded-full bg-deep text-[13px] font-semibold text-on-deep ring-4 ring-surface',
+              '-mt-4 flex h-16 w-[4.5rem] flex-col items-center justify-center gap-0.5 rounded-full bg-deep text-[13px] font-semibold text-on-deep ring-4 ring-white/80 shadow-[0_8px_20px_-8px_rgba(15,61,34,0.55)]',
               'transition-transform duration-150 group-active:scale-95 motion-reduce:group-active:scale-100',
             )}
           >
@@ -126,7 +126,12 @@ export function AppShell() {
             <span>9:41</span>
           </div>
           <div className="phone-frame-screen">
-            <div className="min-h-dvh pt-[env(safe-area-inset-top)]">
+            <div className="app-shell relative isolate min-h-dvh pt-[env(safe-area-inset-top)]">
+              <div className="app-aurora" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </div>
               <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-full focus:bg-surface focus:px-4 focus:py-2">
                 Skip to content
               </a>
@@ -140,7 +145,7 @@ export function AppShell() {
                 <Outlet />
               </main>
               {showNav && (
-                <nav aria-label="Main" className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)]">
+                <nav aria-label="Main" className="glass-bar fixed inset-x-0 bottom-0 z-40 pb-[env(safe-area-inset-bottom)]">
                   <ul className="mx-auto grid max-w-[480px] grid-cols-5 px-1">
                     {LEFT.map((t) => (
                       <li key={t.to}>

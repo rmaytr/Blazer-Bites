@@ -389,7 +389,7 @@ export default function Checkout() {
       )}
 
       <div aria-hidden className="h-24" />
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface">
+      <div className="glass-bar fixed inset-x-0 bottom-0 z-30">
         <div className="mx-auto max-w-[480px] px-4 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
           <Button size="lg" loading={paying} disabled={!quote} onClick={pay}>
             {paying ? "Paying…" : `Pay ${formatCents(total)}`}

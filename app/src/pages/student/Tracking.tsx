@@ -16,7 +16,7 @@ const EASE_OUT = [0.23, 1, 0.32, 1] as const
 function BottomBar({ children }: { children: ReactNode }) {
   return (
     <div className="fixed inset-x-0 bottom-[calc(var(--nav-h)+env(safe-area-inset-bottom))] z-30">
-      <div className="mx-auto max-w-[480px] bg-ground/95 px-4 pt-3 pb-3">{children}</div>
+      <div className="glass-bar mx-auto max-w-[480px] px-4 pt-3 pb-3">{children}</div>
     </div>
   )
 }
