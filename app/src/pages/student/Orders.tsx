@@ -46,7 +46,7 @@ function PastOrder({ order, onReorder }: { order: OrderWithItems; onReorder: () 
   return (
     <li className="py-4">
       <div className="flex items-baseline justify-between gap-3">
-        <p className="text-base font-semibold">
+        <p className="card-title">
           {orderDay(order.placed_at)} · {order.cart_name}
         </p>
         <Price cents={order.total_cents} className="text-base" />

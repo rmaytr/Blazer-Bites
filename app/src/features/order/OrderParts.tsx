@@ -72,7 +72,7 @@ export function PickupChip({ cart, carts, onChoose }: PickupChipProps) {
                 >
                   <span className="min-w-0 flex-1">
                     <span className="flex items-center gap-2">
-                      <span className="truncate text-base font-semibold">{c.name}</span>
+                      <span className="card-title truncate">{c.name}</span>
                       <StatusChip status={status} />
                     </span>
                     <span className="mt-1 block truncate text-[13px]">{c.spot?.name}</span>
@@ -113,7 +113,7 @@ export function NextSpecialCard({ item }: { item: MenuItem }) {
       {item.photo_url && <img src={publicUrl(item.photo_url)} alt="" loading="lazy" className="size-16 flex-none rounded-small object-cover" />}
       <div className="min-w-0">
         <p className="text-[13px] font-semibold text-muted">Coming next week</p>
-        <h3 id="next-special" className="text-base font-semibold">
+        <h3 id="next-special" className="card-title">
           {item.name}
         </h3>
         <p className="num text-[13px] text-muted">{formatCents(item.price_cents)}</p>

@@ -63,7 +63,7 @@ export function MenuCard({ item, soldOut, avoid, inBag, onAdd }: MenuCardProps) 
       )}
       <div className="p-5">
         <div className="flex items-start justify-between gap-3">
-          <h3 id={`dish-${item.id}`} className="text-base leading-snug font-semibold">
+          <h3 id={`dish-${item.id}`} className="card-title">
             {item.name}
           </h3>
           <Price cents={item.price_cents} className="text-base" />

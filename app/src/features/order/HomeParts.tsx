@@ -60,7 +60,7 @@ export function TodayStrip({ fiveDollar, special, to }: { fiveDollar?: MenuItem;
         {fiveDollar && (
           <Link to={to} className={cn('flex min-h-32 flex-col rounded-card bg-gold p-4 text-on-gold', press)}>
             <span className="num text-[32px] leading-none font-bold tracking-tight">$5</span>
-            <span className="mt-auto pt-3 text-[15px] leading-snug font-semibold">
+            <span className="card-title card-title-sm mt-auto pt-3">
               {fiveDollar.variants.join(' or ').replace(/^./, (c) => c.toUpperCase())}
             </span>
           </Link>
@@ -68,7 +68,7 @@ export function TodayStrip({ fiveDollar, special, to }: { fiveDollar?: MenuItem;
         {special && (
           <Link to={to} className={cn('flex min-h-32 flex-col rounded-card bg-surface p-4', press)}>
             <span className="text-[13px] font-semibold text-muted">Chef&rsquo;s special</span>
-            <span className="mt-1 text-base leading-snug font-semibold">{special.name}</span>
+            <span className="card-title card-title-sm mt-1">{special.name}</span>
             <span className="mt-auto flex items-center justify-between gap-2 pt-3">
               <StarRating value={special.avg_rating ?? 0} count={special.rating_count} />
               <Price cents={special.price_cents} className="text-[15px]" />
@@ -94,7 +94,7 @@ export function CartRow({ cart, status, from }: CartRowProps) {
     <>
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
-          <h3 className="truncate text-base leading-tight font-semibold">{cart.name}</h3>
+          <h3 className="card-title truncate">{cart.name}</h3>
           <StatusChip status={status} />
         </div>
         <p className="mt-1 truncate text-[13px]">
@@ -143,7 +143,7 @@ export function PunchCard({ loyalty }: { loyalty: LoyaltyView }) {
       aria-label={`Punch card: ${loyalty.punches} of ${loyalty.every}. ${left} more for a free meal. Open rewards`}
     >
       <div className="flex items-baseline justify-between gap-3">
-        <h2 className="text-base font-semibold">Punch card</h2>
+        <h2 className="card-title">Punch card</h2>
         <span className="num text-[15px] font-semibold">
           {loyalty.punches}
           <span className="font-normal text-muted"> / {loyalty.every}</span>

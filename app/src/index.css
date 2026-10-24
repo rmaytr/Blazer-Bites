@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/archivo/wdth.css';
 @import '@fontsource/instrument-serif/latin-400.css';
 @import '@fontsource/instrument-serif/latin-400-italic.css';
 
@@ -9,6 +10,8 @@
   --font-sans: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
   /* Display serif for page titles and the wordmark, as on the promo site. Never for body text. */
   --font-display: 'Instrument Serif', ui-serif, Georgia, serif;
+  /* Card titles: Archivo, slightly wide and bold, so a card's name stands apart from its details. */
+  --font-title: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
 
   --color-ground: var(--bb-ground);
   --color-surface: var(--bb-surface);
@@ -82,8 +85,20 @@
   }
 }
 
-/* Type: three voices. Instrument Serif for page titles, Bricolage for everything you read or tap,
-   and small tracked caps for section labels. */
+/* Type: four voices. Instrument Serif for page titles, Archivo for card titles, Bricolage for
+   everything you read or tap, and small tracked caps for section labels. */
+.card-title {
+  font-family: var(--font-title);
+  font-size: 17px;
+  font-weight: 700;
+  font-stretch: 105%;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+/* For the small half-width tiles on Home, where 17px would wrap to three lines. */
+.card-title-sm {
+  font-size: 15px;
+}
 .section-label {
   font-size: 12px;
   font-weight: 700;

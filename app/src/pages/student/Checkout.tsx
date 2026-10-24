@@ -163,7 +163,7 @@ export default function Checkout() {
         aria-labelledby="bag-title"
         className="rounded-card bg-surface p-5"
       >
-        <h2 id="bag-title" className="text-base font-semibold">
+        <h2 id="bag-title" className="card-title">
           Your bag
         </h2>
         <ul className="mt-2">
@@ -232,7 +232,7 @@ export default function Checkout() {
       >
         <div className="flex items-center justify-between gap-3">
           <div>
-            <h2 id="who-title" className="text-base font-semibold">
+            <h2 id="who-title" className="card-title">
               {asGuest
                 ? "Ordering as a guest"
                 : `Ordering as ${profile.display_name}`}

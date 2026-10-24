@@ -28,7 +28,7 @@ export default function Rewards() {
 
       <section aria-labelledby="punch-title" className="rounded-card bg-surface p-5">
         <div className="flex items-baseline justify-between gap-3">
-          <h2 id="punch-title" className="text-base font-semibold">
+          <h2 id="punch-title" className="card-title">
             Punch card
           </h2>
           <p className="num text-[15px] text-muted">{card.lifetime_meals} meals so far</p>
@@ -50,7 +50,7 @@ export default function Rewards() {
 
       <section aria-label="Free meals" className="mt-3 flex items-center justify-between gap-3 rounded-card bg-surface p-5">
         <div>
-          <h2 className="text-base font-semibold">Free meals ready</h2>
+          <h2 className="card-title">Free meals ready</h2>
           <p className="text-sm text-muted">{free > 0 ? 'Comes off your next order.' : 'Your 10th punch unlocks one.'}</p>
         </div>
         <span className={free > 0 ? 'num grid h-11 min-w-11 place-items-center rounded-full bg-gold px-3 text-xl font-bold text-on-gold' : 'num text-xl font-bold text-muted'}>

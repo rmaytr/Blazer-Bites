@@ -13,6 +13,7 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
     "@fontsource-variable/bricolage-grotesque": "^5.3.0",
     "@fontsource/instrument-serif": "^5.3.0",
     "@yudiel/react-qr-scanner": "^2.6.0",
